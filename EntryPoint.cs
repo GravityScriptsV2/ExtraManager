@@ -100,8 +100,6 @@ namespace ExtraManager
                                             continue;
                                         }
 
-                                        Game.LogTrivial($"Vehicle found: {modelName}");
-
                                         for (int i = 1; i <= 14; i++)
                                         {
                                             bool isExtraEnabled = NativeFunction.CallByHash<bool>(0xD2E6822DBFD6C8BD, vehicle, i);
