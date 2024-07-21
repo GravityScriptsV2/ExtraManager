@@ -1,4 +1,4 @@
-﻿using ExtraManager.Handlers;
+﻿using System;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -6,7 +6,7 @@ namespace ExtraManager.Models
 {
     public class VehicleDataManager
     {
-        private static readonly string XmlFilePath = Path.Combine(ConfigHandler.PluginPath, "VehicleExtrasConfig.xml");
+        private static readonly string XmlFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "/plugins/ExtraManager", "VehicleExtrasConfig.xml");
 
         public static VehicleSet LoadVehicles()
         {

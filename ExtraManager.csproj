@@ -71,7 +71,6 @@
     <Compile Include="Core\Models\VehicleSet.cs" />
     <Compile Include="Core\UtilityConstants.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Handlers\ConfigHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
