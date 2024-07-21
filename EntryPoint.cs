@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 [assembly: Plugin("ExtraManager", Author = "Venoxity Development", PrefersSingleInstance = true, ShouldTickInPauseMenu = true, SupportUrl = "https://discord.gg/jCEdAF8AQz")]
 namespace ExtraManager
@@ -80,34 +81,45 @@ namespace ExtraManager
                         GameFiber.Yield();
                         if (vehicle.IsValid())
                         {
-                            var vehicleData = vehicleList.FirstOrDefault(v => v.Name == vehicle.Model.Name);
-                            if (vehicleData != null)
+                            uint modelHash = vehicle.Model.Hash;
+                            IntPtr modelNamePtr = NativeFunction.CallByHash<IntPtr>(0xB215AAC32D25D019, modelHash);
+
+                            if (modelNamePtr != IntPtr.Zero)
                             {
-                                uint vehicleHandle = vehicle.Handle;
+                                string modelName = Marshal.PtrToStringAnsi(modelNamePtr).ToUpper();
 
-                                if (processedVehicleHandles.Contains(vehicleHandle))
+                                if (!string.IsNullOrEmpty(modelName))
                                 {
-                                    continue; 
-                                }
-
-                                Game.LogTrivial($"Vehicle found: {vehicle.Model.Name}");
-
-                                for (int i = 1; i <= 14; i++)
-                                {
-                                    bool isExtraEnabled = NativeFunction.CallByHash<bool>(0xD2E6822DBFD6C8BD, vehicle, i);
-
-                                    // Check if the extra is in the XML configuration
-                                    var extraConfig = vehicleData.Extras.FirstOrDefault(ec => ec.Id == i);
-                                    bool shouldEnable = extraConfig != null ? extraConfig.Enabled : false;
-
-                                    // If the current state doesn't match the configuration, update it
-                                    if (isExtraEnabled != shouldEnable)
+                                    var vehicleData = vehicleList.FirstOrDefault(v => v.Name == modelName);
+                                    if (vehicleData != null)
                                     {
-                                        NativeFunction.CallByHash<int>(0x7EE3A3C5E4A40CC9, vehicle, i, !shouldEnable);
+                                        uint vehicleHandle = vehicle.Handle;
+
+                                        if (processedVehicleHandles.Contains(vehicleHandle))
+                                        {
+                                            continue;
+                                        }
+
+                                        Game.LogTrivial($"Vehicle found: {modelName}");
+
+                                        for (int i = 1; i <= 14; i++)
+                                        {
+                                            bool isExtraEnabled = NativeFunction.CallByHash<bool>(0xD2E6822DBFD6C8BD, vehicle, i);
+
+                                            // Check if the extra is in the XML configuration
+                                            var extraConfig = vehicleData.Extras.FirstOrDefault(ec => ec.Id == i);
+                                            bool shouldEnable = extraConfig != null ? extraConfig.Enabled : false;
+
+                                            // If the current state doesn't match the configuration, update it
+                                            if (isExtraEnabled != shouldEnable)
+                                            {
+                                                NativeFunction.CallByHash<int>(0x7EE3A3C5E4A40CC9, vehicle, i, !shouldEnable);
+                                            }
+                                        }
+
+                                        processedVehicleHandles.Add(vehicleHandle);
                                     }
                                 }
-
-                                processedVehicleHandles.Add(vehicleHandle);
                             }
                         }
                     }
