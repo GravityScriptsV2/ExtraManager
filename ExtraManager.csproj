@@ -65,11 +65,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Models\Extra.cs" />
-    <Compile Include="Core\Models\Managers\VehicleDataManager.cs" />
-    <Compile Include="Core\Models\VehicleData.cs" />
-    <Compile Include="Core\Models\VehicleSet.cs" />
-    <Compile Include="Core\UtilityConstants.cs" />
+    <Compile Include="Models\Extra.cs" />
+    <Compile Include="Models\Managers\VehicleDataManager.cs" />
+    <Compile Include="Models\VehicleData.cs" />
+    <Compile Include="Models\VehicleSet.cs" />
+    <Compile Include="UtilityConstants.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
