@@ -126,5 +126,27 @@ namespace ExtraManager
         }
 
         #endregion
+
+        [ConsoleCommand]
+        private static void Command_GetCurrentVehicleName()
+        {
+            Vehicle currentVehicle = Game.LocalPlayer.Character.CurrentVehicle;
+
+            if (currentVehicle != null)
+            {
+                uint modelHash = (uint)currentVehicle.Model.Hash;
+                IntPtr modelNamePtr = NativeFunction.CallByHash<IntPtr>(0xB215AAC32D25D019, modelHash);
+
+                if (modelNamePtr != IntPtr.Zero)
+                {
+                    string modelName = Marshal.PtrToStringAnsi(modelNamePtr).ToUpper();
+
+                    if (!string.IsNullOrEmpty(modelName))
+                    {
+                        Game.LogTrivial("Vehicle Model Name: " + modelName);
+                    }
+                }
+            }
+        }
     }
 }
