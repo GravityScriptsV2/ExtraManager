@@ -49,6 +49,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RAGENativeUI">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\Grand Theft Auto V\RAGENativeUI.dll</HintPath>
+    </Reference>
     <Reference Include="RagePluginHook">
       <HintPath>..\SimpleCTRL\bin\Debug\RagePluginHook.dll</HintPath>
     </Reference>
