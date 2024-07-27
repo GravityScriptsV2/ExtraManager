@@ -1,4 +1,5 @@
 ﻿using ExtraManager.Models;
+using ExtraManager.UI;
 using Rage;
 using Rage.Attributes;
 using Rage.Native;
@@ -29,6 +30,7 @@ namespace ExtraManager
             if (CheckDependencies())
             {
                 InitializePlugin();
+                Menu.Setup();
             }
             else
             {
