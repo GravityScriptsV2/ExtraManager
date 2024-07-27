@@ -67,6 +67,8 @@
   <ItemGroup>
     <Compile Include="Models\Extra.cs" />
     <Compile Include="Models\Managers\VehicleDataManager.cs" />
+    <Compile Include="Models\Modkit.cs" />
+    <Compile Include="Models\ModkitSet.cs" />
     <Compile Include="Models\VehicleData.cs" />
     <Compile Include="Models\VehicleSet.cs" />
     <Compile Include="UtilityConstants.cs" />
