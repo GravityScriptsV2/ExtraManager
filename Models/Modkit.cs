@@ -8,6 +8,6 @@ namespace ExtraManager.Models
         public int Id { get; set; }
 
         [XmlElement("WindowTint")]
-        public int WindowTint { get; set; }
+        public int? WindowTint { get; set; }
     }
 }

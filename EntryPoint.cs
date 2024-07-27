@@ -19,6 +19,8 @@ namespace ExtraManager
         private static List<VehicleData> vehicleList = VehicleDataManager.LoadVehicles().VehicleList;
         private static HashSet<uint> processedVehicleHandles = new HashSet<uint>();
 
+        private static ModkitSet modkitSet = VehicleDataManager.LoadModkits();
+
         #endregion
 
         public static void Main()
@@ -100,6 +102,26 @@ namespace ExtraManager
                                             continue;
                                         }
 
+                                        #region ModKit Configuration
+
+                                        // Check if modkit is specified for the vehicle
+                                        var modkitConfig = vehicleData.ModKit.HasValue
+                                            ? modkitSet.Modkits.FirstOrDefault(m => m.Id == vehicleData.ModKit.Value)
+                                            : null;
+
+                                        if (modkitConfig != null)
+                                        {
+                                            if (NativeFunction.CallByHash<int>(0x33F2E3FE70EAAE1D, vehicle) > 0) // GET_NUM_MOD_KITS
+                                            {
+                                                NativeFunction.CallByHash<int>(0x1F2AA07F00B3217A, vehicle, 0); // SET_VEHICLE_MOD_KIT
+                                            }
+                                            VehicleDataManager.ApplyVehicleCustomization(vehicle, modkitConfig);
+                                        }
+
+                                        #endregion
+
+                                        #region Extra Configuration
+
                                         for (int i = 1; i <= 14; i++)
                                         {
                                             bool isExtraEnabled = NativeFunction.CallByHash<bool>(0xD2E6822DBFD6C8BD, vehicle, i);
@@ -115,6 +137,8 @@ namespace ExtraManager
                                             }
                                         }
 
+                                        #endregion
+
                                         processedVehicleHandles.Add(vehicleHandle);
                                     }
                                 }
@@ -126,6 +150,8 @@ namespace ExtraManager
         }
 
         #endregion
+
+        #region Commands
 
         [ConsoleCommand]
         private static void Command_GetCurrentVehicleName()
@@ -148,5 +174,7 @@ namespace ExtraManager
                 }
             }
         }
+
+        #endregion
     }
 }

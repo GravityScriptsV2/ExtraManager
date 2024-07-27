@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Rage;
+using Rage.Native;
+using System;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -43,6 +45,17 @@ namespace ExtraManager.Models
             }
 
             return modkits;
+        }
+
+        #endregion
+
+        #region Customization Methods
+
+        public static void ApplyVehicleCustomization(Vehicle vehicle, Modkit data)
+        {
+            int tintValue = data.WindowTint.HasValue ? data.WindowTint.Value : 0;
+
+            NativeFunction.CallByHash<int>(0x57C51E6BAD752696, vehicle, tintValue); // SET_VEHICLE_WINDOW_TINT
         }
 
         #endregion
