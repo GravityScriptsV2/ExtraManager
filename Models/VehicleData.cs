@@ -6,6 +6,7 @@ namespace ExtraManager.Models
     [XmlRoot("Vehicle")]
     public class VehicleData
     {
+        [XmlAttribute("name")]
         public string Name { get; set; }
 
         [XmlArray("Extras")]
