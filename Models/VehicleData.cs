@@ -12,7 +12,7 @@ namespace ExtraManager.Models
 
         // The ModKit element references the modkit ID associated with this vehicle. 
         [XmlElement("ModKit")]
-        public int ModKit { get; set; }
+        public int? ModKit { get; set; }
 
         // List of extras available for the vehicle.
         [XmlArray("Extras")]
