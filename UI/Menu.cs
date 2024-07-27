@@ -33,7 +33,16 @@ namespace ExtraManager.UI
                 if (Game.IsShiftKeyDownRightNow && Game.IsKeyDown(Keys.F5) &&
                     !UIMenu.IsAnyMenuVisible && !TabView.IsAnyPauseMenuVisible)
                 {
-                    MainMenu.Visible = true;
+                    var playerPed = Game.LocalPlayer.Character;
+
+                    if (playerPed.IsInAnyVehicle(false))
+                    {
+                        MainMenu.Visible = true;
+                    }
+                    else
+                    {
+                        Game.DisplaySubtitle("Not in Vehicle, or No Saved Vehicle");
+                    }
                 }
 
                 Pool.ProcessMenus();
