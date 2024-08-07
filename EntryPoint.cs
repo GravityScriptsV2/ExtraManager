@@ -1,19 +1,18 @@
-﻿using ExtraManager.Models;
-using ExtraManager.UI;
+﻿using Common;
+using Common.API;
+using ExtraManager.Models;
 using Rage;
 using Rage.Attributes;
 using Rage.Native;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: Plugin("ExtraManager", Author = "Venoxity Development", PrefersSingleInstance = true, ShouldTickInPauseMenu = true, SupportUrl = "https://discord.gg/jCEdAF8AQz")]
 namespace ExtraManager
 {
-    public class EntryPoint
+    public class EntryPoint : CommonPlugin
     {
         #region Fields
 
@@ -27,51 +26,10 @@ namespace ExtraManager
 
         public static void Main()
         {
-            if (CheckDependencies())
-            {
-                InitializePlugin();
-                Menu.Setup();
-            }
-            else
-            {
-                Game.DisplayNotification("new_editor", "warningtriangle", "ExtraManager", "~r~Initialization Failure", "~y~ExtraManager could not start. You are missing required libraries.");
-            }
-        }
+            DependencyManager.AddDependency("RageNativeUI.dll", "1.9.2.0");
+            if (!DependencyManager.CheckDependencies()) return;
 
-        #endregion
-
-        #region Dependency Check
-
-        private static bool CheckDependencies()
-        {
-            foreach (var dependency in UtilityConstants.Dependencies)
-            {
-                if (!IsAssemblyAvailable(dependency.Name, dependency.Version))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private static bool IsAssemblyAvailable(string assemblyName, string version)
-        {
-            try
-            {
-                AssemblyName assemblyName2 = AssemblyName.GetAssemblyName(AppDomain.CurrentDomain.BaseDirectory + "/" + assemblyName);
-                if (assemblyName2.Version >= new Version(version))
-                {
-                    Game.LogTrivial($"ExtraManager dependency {assemblyName} is available ({assemblyName2.Version}).");
-                    return true;
-                }
-                Game.LogTrivial($"ExtraManager dependency {assemblyName} does not meet minimum requirements ({assemblyName2.Version} < {version}).");
-                return false;
-            }
-            catch (Exception ex) when (ex is FileNotFoundException || ex is BadImageFormatException)
-            {
-                Game.LogTrivial("ExtraManager dependency " + assemblyName + " is not available.");
-                return false;
-            }
+            InitializePlugin();
         }
 
         #endregion

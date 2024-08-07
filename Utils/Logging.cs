@@ -4,7 +4,14 @@ using System;
 
 namespace ExtraManager.Utils
 {
-    internal class Logging
+	public enum LoggingLevel
+	{
+		DEBUG,
+		INFO,
+		WARNING,
+		ERROR
+	}
+	internal class Logging
     {
 		#region Log Methods
 
