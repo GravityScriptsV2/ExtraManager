@@ -13,7 +13,6 @@ namespace ExtraManager.Engine.FrontendSystems
 
                 if (playerPed.IsInAnyVehicle(false))
                 {
-                    ConfigMenu.
                     ConfigMenu.MainMenu.Visible = true;
                 }
                 else

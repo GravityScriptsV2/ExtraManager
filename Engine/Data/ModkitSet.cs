@@ -1,4 +1,4 @@
-﻿namespace ExtraManager.Data
+﻿namespace ExtraManager.Engine.Data
 {
     [XmlRoot("Modkits")]
     public class ModkitSet
