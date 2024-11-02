@@ -1,8 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using Common;
 using Common.API;
-using ExtraManager.Data;
-using Rage.Attributes;
 
 [assembly: Plugin("ExtraManager", Author = "Venoxity Development", PrefersSingleInstance = true, ShouldTickInPauseMenu = true, SupportUrl = "https://discord.gg/jCEdAF8AQz")]
 namespace ExtraManager

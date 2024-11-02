@@ -1,16 +1,13 @@
-﻿using RAGENativeUI;
-using RAGENativeUI.Elements;
-using RAGENativeUI.PauseMenu;
-using System.Windows.Forms;
+﻿using RAGENativeUI.Elements;
 
-namespace ExtraManager.UI
+namespace ExtraManager.Engine.FrontendSystems
 {
-    public static class Menu
+    internal static class ConfigMenu
     {
         #region Fields
 
         private static MenuPool Pool;
-        private static UIMenu MainMenu;
+        public static UIMenu MainMenu;
         private static UIMenuNumericScrollerItem<int> windowTintSelector;
 
         private static readonly Dictionary<int, string> TintLevelNames = new Dictionary<int, string>
@@ -48,21 +45,6 @@ namespace ExtraManager.UI
             while (true)
             {
                 GameFiber.Yield();
-                
-                if (Game.IsShiftKeyDownRightNow && Game.IsKeyDown(Keys.F5) &&
-                    !UIMenu.IsAnyMenuVisible && !TabView.IsAnyPauseMenuVisible)
-                {
-                    var playerPed = Game.LocalPlayer.Character;
-
-                    if (playerPed.IsInAnyVehicle(false))
-                    {
-                        MainMenu.Visible = true;
-                    }
-                    else
-                    {
-                        Game.DisplaySubtitle("Not in Vehicle, or No Saved Vehicle");
-                    }
-                }
 
                 Pool.ProcessMenus();
             }

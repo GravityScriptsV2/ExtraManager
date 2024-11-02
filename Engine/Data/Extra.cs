@@ -1,4 +1,4 @@
-﻿namespace ExtraManager.Data
+﻿namespace ExtraManager.Engine.Data
 {
     public class Extra
     {
