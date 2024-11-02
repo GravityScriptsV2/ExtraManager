@@ -7,6 +7,7 @@ global using System.Xml.Serialization;
 global using Common;
 global using Common.API;
 global using ExtraManager.Engine.Data;
+global using ExtraManager.Engine.FrontendSystems;
 global using Rage;
 global using Rage.Attributes;
 global using Rage.Native;

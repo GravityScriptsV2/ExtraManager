@@ -29,6 +29,7 @@ namespace ExtraManager
 
         private static void InitializePlugin()
         {
+            ConfigMenu.Setup();
             GameFiber.StartNew(delegate
             {
                 while (true)
