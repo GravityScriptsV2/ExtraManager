@@ -1,6 +1,4 @@
 ﻿using System.Runtime.InteropServices;
-using Common;
-using Common.API;
 
 [assembly: Plugin("ExtraManager", Author = "Venoxity Development", PrefersSingleInstance = true, ShouldTickInPauseMenu = true, SupportUrl = "https://discord.gg/jCEdAF8AQz")]
 namespace ExtraManager
