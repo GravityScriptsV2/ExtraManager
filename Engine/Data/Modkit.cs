@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace ExtraManager.Models
+namespace ExtraManager.Data
 {
     public class Modkit
     {

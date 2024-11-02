@@ -1,8 +1,7 @@
-﻿using ExtraManager.Handlers;
-using Rage;
+﻿using Rage;
 using System;
 
-namespace ExtraManager.Utils
+namespace ExtraManager.Engine.InternalSystems
 {
 	public enum LoggingLevel
 	{
@@ -41,7 +40,7 @@ namespace ExtraManager.Utils
 
 		public static void Log(LoggingLevel level, string message, string caller, Exception ex = null)
 		{
-			if ((int)level >= ConfigHandler.LogLevel)
+			if ((int)level >= Settings.LogLevel)
 			{
 				Game.LogTrivial("[" + caller + "] " + message);
 				if (ex != null)

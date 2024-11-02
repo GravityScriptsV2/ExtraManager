@@ -70,17 +70,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\ConfigHandler.cs" />
-    <Compile Include="Models\Extra.cs" />
-    <Compile Include="Models\Managers\VehicleDataManager.cs" />
-    <Compile Include="Models\Modkit.cs" />
-    <Compile Include="Models\ModkitSet.cs" />
-    <Compile Include="Models\VehicleData.cs" />
-    <Compile Include="Models\VehicleSet.cs" />
-    <Compile Include="UI\Menu.cs" />
+    <Compile Include="Engine\InternalSystems\Settings.cs" />
+    <Compile Include="Engine\Data\Extra.cs" />
+    <Compile Include="Engine\Data\Managers\VehicleDataManager.cs" />
+    <Compile Include="Engine\Data\Modkit.cs" />
+    <Compile Include="Engine\Data\ModkitSet.cs" />
+    <Compile Include="Engine\Data\VehicleData.cs" />
+    <Compile Include="Engine\Data\VehicleSet.cs" />
+    <Compile Include="Engine\FrontendSystems\ConfigMenu.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\Logging.cs" />
+    <Compile Include="Engine\InternalSystems\Logging.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

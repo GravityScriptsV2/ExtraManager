@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace ExtraManager.Models
+namespace ExtraManager.Data
 {
     [XmlRoot("Modkits")]
     public class ModkitSet

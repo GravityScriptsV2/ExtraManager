@@ -1,6 +1,6 @@
 ﻿using Common;
 using Common.API;
-using ExtraManager.Models;
+using ExtraManager.Data;
 using Rage;
 using Rage.Attributes;
 using Rage.Native;

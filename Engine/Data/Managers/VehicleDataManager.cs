@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace ExtraManager.Models
+namespace ExtraManager.Data
 {
     public class VehicleDataManager
     {
