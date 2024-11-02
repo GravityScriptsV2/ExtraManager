@@ -71,7 +71,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Engine\FrontendSystems\ConsoleCommands.cs" />
     <Compile Include="Engine\InternalSystems\Settings.cs" />
     <Compile Include="Engine\Data\Extra.cs" />
     <Compile Include="Engine\Data\Managers\VehicleDataManager.cs" />
