@@ -1,9 +1,6 @@
-﻿using Rage;
-using Rage.Native;
-using RAGENativeUI;
+﻿using RAGENativeUI;
 using RAGENativeUI.Elements;
 using RAGENativeUI.PauseMenu;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace ExtraManager.UI

@@ -1,9 +1,4 @@
-﻿using Rage;
-using Rage.Native;
-using System;
-using System.IO;
-using System.Linq;
-using System.Xml.Serialization;
+﻿using System.IO;
 
 namespace ExtraManager.Data
 {

@@ -36,7 +36,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>preview</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
@@ -45,7 +45,7 @@
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
+    <LangVersion>preview</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
@@ -79,6 +79,7 @@
     <Compile Include="Engine\Data\VehicleSet.cs" />
     <Compile Include="Engine\FrontendSystems\ConfigMenu.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="GlobalUsings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Engine\InternalSystems\Logging.cs" />
   </ItemGroup>

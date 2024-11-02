@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Xml.Serialization;
-
-namespace ExtraManager.Data
+﻿namespace ExtraManager.Data
 {
     [XmlRoot("Vehicle")]
     public class VehicleData

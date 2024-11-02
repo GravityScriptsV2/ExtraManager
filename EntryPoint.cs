@@ -1,13 +1,8 @@
-﻿using Common;
+﻿using System.Runtime.InteropServices;
+using Common;
 using Common.API;
 using ExtraManager.Data;
-using Rage;
 using Rage.Attributes;
-using Rage.Native;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
 
 [assembly: Plugin("ExtraManager", Author = "Venoxity Development", PrefersSingleInstance = true, ShouldTickInPauseMenu = true, SupportUrl = "https://discord.gg/jCEdAF8AQz")]
 namespace ExtraManager

@@ -1,7 +1,4 @@
-﻿using Rage;
-using System;
-
-namespace ExtraManager.Engine.InternalSystems
+﻿namespace ExtraManager.Engine.InternalSystems
 {
 	public enum LoggingLevel
 	{
